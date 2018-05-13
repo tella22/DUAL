@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE ediciones_aranda SYSTEM "practica8.dtd">
+
+<ediciones_aranda>
+	<informe_regional_de_ventas descripcion="informe de ventas para las regiones Norte, Centro y Sur" fecha="30/12/2016">
+		<region>norte</region>
+		<trimestre>1</trimestre>
+		<libros_vendidos>24000</libros_vendidos>
+		<region>norte</region>
+		<trimestre>2</trimestre>
+		<libros_vendidos>38600</libros_vendidos>
+		<region>norte</region>
+		<trimestre>3</trimestre>
+		<libros_vendidos></libros_vendidos>
+		<region>norte</region>
+		<trimestre>4</trimestre>
+		<libros_vendidos></libros_vendidos>
+		<region>centro</region>
+		<trimestre>1</trimestre>
+		<libros_vendidos></libros_vendidos>
+		<region>centro</region>
+		<trimestre>2</trimestre>
+		<libros_vendidos>16080</libros_vendidos>
+		<region>centro</region>
+		<trimestre>3</trimestre>
+		<libros_vendidos>25000</libros_vendidos>
+		<region>centro</region>
+		<trimestre>4</trimestre>
+		<libros_vendidos>29000</libros_vendidos>
+		<region>sur</region>
+		<trimestre>1</trimestre>
+		<libros_vendidos>27000</libros_vendidos>
+		<region>sur</region>
+		<trimestre>2</trimestre>
+		<libros_vendidos>31400</libros_vendidos>
+		<region>sur</region>
+		<trimestre>3</trimestre>
+		<libros_vendidos>40100</libros_vendidos>
+		<region>sur</region>
+		<trimestre>4</trimestre>
+		<libros_vendidos>30000</libros_vendidos>
+	</informe_regional_de_ventas>
+</ediciones_aranda>

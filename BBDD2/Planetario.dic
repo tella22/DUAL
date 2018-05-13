@@ -1,0 +1,121 @@
+_____________________________________________________________
+
+       Dictionary report
+
+       Project             PROJECT
+_____________________________________________________________
+
+
+
+                        schema relacional/1-1
+
+   Anotaciones
+      ID_Anotacion
+      Comentario
+      DNI_Investigador
+      ID_CCeleste
+      id: ID_Anotacion
+         access key
+      equ: DNI_Investigador = Investigadores.DNI_Investigador
+         access key
+      ref: ID_CCeleste -> Planetas.ID_CCeleste
+         access key
+   Asteroides
+      ID_CCeleste
+      Nombre
+      id: ID_CCeleste
+         ref: ->  cuerpo_celeste.ID_CCeleste
+         access key
+   cuerpo_celeste
+      ID_CCeleste
+      Nombre
+      Satelites[0-1]
+      Planetas[0-1]
+      Asteroides[0-1]
+      ID_SPla
+      id: ID_CCeleste
+         access key
+      equ: ID_SPla = Sistemas_Planetarios.ID_SPla
+         access key
+      exactly one: Asteroides, Satelites, Planetas
+   Investigadores
+      DNI_Investigador
+      Nombre
+      Apellidos
+      Fecha_de_nacimiento
+      Telefono
+      E_Mail
+      id: DNI_Investigador
+         access key
+   Estudia
+      ID_CCeleste
+      ID_Sonda
+      id: ID_Sonda, ID_CCeleste
+         access key
+      ref: ID_Sonda -> Sondas.ID_Sonda
+      equ: ID_CCeleste = cuerpo_celeste.ID_CCeleste
+         access key
+   Organizaciones
+      ID_Org
+      Nombre
+      Pais_de_origen
+      id: ID_Org
+         access key
+   Exposicion
+      Id_Exp
+      Horario
+      id: Id_Exp
+         access key
+   Planetas
+      ID_CCeleste
+      Nombre
+      Volumen
+      id: ID_CCeleste
+         ref: ->  cuerpo_celeste.ID_CCeleste
+         access key
+   Satelites
+      ID_CCeleste
+      Nombre
+      Orb_ID_CCeleste
+      id: ID_CCeleste
+         ref: ->  cuerpo_celeste.ID_CCeleste
+         access key
+      ref: Orb_ID_CCeleste -> Planetas.ID_CCeleste
+         access key
+   Sistemas_Planetarios
+      ID_SPla
+      nombre
+      id: ID_SPla
+         access key
+   Sondas
+      ID_Sonda
+      Nombre
+      Fecha_Lanzamiento
+      Fecha_de_Regreso
+      ID_Org
+      id: ID_Sonda
+         access key
+      ref: ID_Org -> Organizaciones.ID_Org
+         access key
+   Visitan
+      ID_Visita
+      Nombre_de_visita
+      Fecha
+      DNI_Visitante
+      Id_Exp
+      id: ID_Visita
+         access key
+      equ: DNI_Visitante = Visitantes.DNI_Visitante
+         access key
+      ref: Id_Exp -> Exposicion.Id_Exp
+         access key
+   Visitantes
+      DNI_Visitante
+      Nombre
+      Apellidos
+      Fecha_de_nacimiento
+      Telefono
+      E_Mail
+      id: DNI_Visitante
+         access key
+

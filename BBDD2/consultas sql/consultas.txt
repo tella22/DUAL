@@ -1,0 +1,116 @@
+1
+
+select COUNT(*) pedidos_total, SUM(precio_total) importe
+from pedidos
+group by extract(year from fecha_pedido), extract(month from fecha_pedido)
+ORDER BY extract(year from fecha_pedido), extract(month from fecha_pedido);
+
+__________________________________________________________________
+
+2
+
+select clientes.*
+from pedidos join empleados on pedidos.id_empleado = empleados.id_empleado 
+             join clientes on pedidos.id_cliente = clientes.id_cliente
+where clientes.codigo_area = empleados.codigo_area;
+
+__________________________________________________________________
+
+3
+
+select *
+from productos
+where stock = (select min(stock)
+               from productos);
+
+__________________________________________________________________
+
+4
+
+select distinct clientes.*
+from clientes join pedidos on pedidos.id_cliente = clientes.id_cliente
+              join detalles_pedidos on pedidos.numero_pedido = detalles_pedidos.numero_pedido
+              join productos on detalles_pedidos.numero_producto = productos.numero_producto
+              join productos_proveedores on productos.numero_producto = productos_proveedores.numero_producto
+              join proveedores on proveedores.id_prov = productos_proveedores.id_prov
+where clientes.cod_postal = proveedores.cod_postal;
+
+__________________________________________________________________
+
+5
+
+select *
+from(select fecha_pedido, sum(precio_total) total
+     from pedidos
+     group by fecha_pedido
+     order by total desc)
+where rownum = 1;
+
+__________________________________________________________________
+
+6
+select id_empleado, total, nombre
+from  (select id_empleado, count(id_empleado) as total
+       from pedidos 
+       where fecha_pedido >= to_date('01/01/07', 'dd/mm/yy') or fecha_pedido <= to_date('31/12/07', 'dd/mm/yy')
+       group by id_empleado 
+       order by count(id_empleado) DESC) 
+join empleados using (id_empleado)
+where rownum <= 3;
+
+__________________________________________________________________
+
+7
+
+select *
+from productos
+where numero_producto not in (select numero_producto
+                             from detalles_pedidos
+                             join pedidos on pedidos.numero_pedido = detalles_pedidos.numero_pedido
+                             where fecha_pedido >= to_date('31/12/08', 'dd/mm/yy') or fecha_pedido <= to_date('01/01/08', 'dd/mm/yy'));
+
+__________________________________________________________________
+
+8
+
+select numero_producto, nombre, descripcion, precio_venta, stock, id_categoria, precio_venta*1.03 as precio_modificado
+from productos
+where id_categoria like 6 or id_categoria like 7 
+union
+select numero_producto, nombre, descripcion, precio_venta, stock, id_categoria, precio_venta*0.95 as precio_modificado
+from productos
+where id_categoria like 3 or id_categoria like 4 
+union
+select numero_producto, nombre, descripcion, precio_venta, stock, id_categoria, precio_venta*1.10 as precio_modificado
+from productos
+where id_categoria not like 3 or id_categoria not like 4 or id_categoria not like 2 or id_categoria not like 5 or id_categoria not like 6 or id_categoria not like 7
+order by id_categoria ;
+
+opcion case
+
+SELECT NUMERO_PRODUCTO, PRECIO_VENTA, (CASE WHEN ID_CATEGORIA IN (6, 7) THEN PRECIO_VENTA * 1.03
+                                            WHEN ID_CATEGORIA IN (2, 3, 4, 5) THEN (precio_venta * 0.95)
+                                            ELSE (PRECIO_VENTA * 1.1)
+                                       END) AS PRECIO_FINAL
+FROM PRODUCTOS;
+
+__________________________________________________________________
+
+9
+
+
+
+__________________________________________________________________
+UPDATE PRODUCTOS SET precio_venta = (CASE WHEN ID_CATEGORIA IN (6, 7) THEN PRECIO_VENTA * 1.03
+                                            WHEN ID_CATEGORIA IN (2, 3, 4, 5) THEN (precio_venta * 0.95)
+                                            ELSE (PRECIO_VENTA * 1.1)
+END);
+__________________________________________________________________
+__________________________________________________________________
+
+10
+__________________________________________________________________
+update pedidos set precio_total = (select sum(precio * cantidad) from detalles_pedidos where pedidos.numero_pedido = detalles_pedidos.numero_pedido)
+WHERE EXTRACT(YEAR FROM FECHA_PEDIDO) = 2008;
+__________________________________________________________________
+__________________________________________________________________

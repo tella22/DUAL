@@ -1,0 +1,61 @@
+96)	Hacer un descuento del 2% en los pedidos que se han enviado con una demora superior a 30 días desde la fecha del pedido.
+Hay que modificar el precio en cada línea de detalles_pedidos y luego, a partir de detalles_pedidos recalcular el precio_total del pedido
+
+96. 
+update detalles_pedidos set precio=precio*1.02 where numero_pedido in (
+
+select numero_pedido
+from detalles_pedidos join pedidos using (numero_pedido)
+where (fecha_envio-fecha_pedido)>30);
+
+update pedidos set precio_total=(select sum(precio*cantidad) 
+from detalles_pedidos dp where pedidos.numero_pedido = dp.numero_pedido group by dp.numero_pedido) ;
+
+97)	Aplicar un 5% de descuento a todos los pedidos de los clientes que hicieron una compra superior a 20000 € en el mes de octubre de 2007.
+Hay que modificar el precio en cada línea de detalles_pedidos y luego, a partir de detalles_pedidos recalcular el precio_total del pedido
+97.
+update detalles_pedidos
+set precio = precio*0.95 where numero_pedido in (
+select numero_pedido from detalles_pedidos dp join pedidos p using (numero_pedido) 
+where (extract(year from fecha_pedido), extract(month from fecha_pedido)) =
+(select 2007,10 from dual));
+
+98)	Hacer que el precio de venta de todos los productos de la categoría 2 sea al menos un 45% superior al precio del proveedor que tenga el precio más barato para dicho producto.  Redondear los precios sin decimales.
+98.
+select numero_producto
+from productos 
+where precio_venta < (select 1.45*(min(pp.precio_por_mayor))
+                from productos_proveedores pp
+                where productos.numero_producto = pp.numero_producto
+                group by pp.numero_producto)
+                ;
+
+
+//UPDATE
+
+update productos 
+set precio_venta = (select 1.45*(min(pp.precio_por_mayor))
+                    from productos_proveedores pp
+                    where productos.numero_producto = pp. numero_producto
+                    group by pp.numero_producto)
+where precio_venta <(select 1.45*(min(pp.precio_por_mayor))
+                from productos_proveedores pp
+                where productos.numero_producto = pp.numero_producto
+                group by pp.numero_producto);
+
+99)	Poner como precio de venta de los productos de la categoría 'Accesorios' el máximo precio al por mayor que nos pongan los proveedores para ese producto más un 35%.
+99.
+update productos 
+set precio_venta = (select 1.45*(max(precio_por_mayor))
+                      from productos_proveedores pp
+                      where pp.numero_producto = productos.numero_producto
+                      group by numero_producto
+                      )
+where id_categoria = (select id_categoria 
+                      from categorias 
+                      where descripcion = 'Accesorios');
+
+100)	Añadir una nueva empleada con los siguientes datos: Susana Maroto, Pinares 16, Villamanta, MADRID, 28610, código de área 425 y número de teléfono 555-7825.
+100.
+insert into empleados 
+((select max(id_empleado)+1,'Susana', 'Maroto', 'Pinares 16', 'Villamanta', 'MADRID','28610','425','555-7825' from empleados))

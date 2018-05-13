@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>formularios</title>
+	<link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+	<table>
+		<tr id="fst">
+			<td>Name</td>
+			<td>Value</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td><input type="text" name = "texto"/></td>
+		</tr>
+		<tr>
+			<td>Sex</td>
+			<td>
+				<input type="radio" name = "radio"/>Male<br/>
+				<input type="radio" name = "radio"/>Female
+			</td>
+		</tr>
+		<tr>
+			<td>Eye color</td>
+			<td>
+				<select name="seleccion">
+					<option value="1">green</option>
+					<option value="2">blue</option>
+					<option value="3">brown</option>
+					<option value="4">grey</option>
+				</select>
+			</td>		
+		</tr>
+		<tr>
+			<td>Chech all that apply</td>
+			<td><input type="checkbox"/>Over 6 feet all<br/>
+				<input type="checkbox"/>Over 200 punds
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">Describe your athletic ability:<input id="describe" type="text" name = "Describe"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" id="submit"><input type="submit" value="Enter my information"/></td>
+		</tr>
+	</table>
+</body>
+</html>

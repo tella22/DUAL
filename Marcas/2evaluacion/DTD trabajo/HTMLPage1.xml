@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html SYSTEM "HTMLPage1.dtd">
+	
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" content="try DTD"/>
+    <title>DTD</title>
+</head>
+<body>
+	<header><h1>validacion de un HTML con DTD</h1></header>
+	<hr/>
+	<nav><a href="#">como validar </a> <a href="#"> herramientas de validacion </a> <a href="#"> claves para la validacion </a></nav>
+	<hr/>
+	<main>
+		<p>vamos a validar un HTML a partir de un DTD</p>
+		<img src="foto/dtd-mini-logo.jpg" alt="foto" />
+	</main>
+	<hr/>
+	<article>
+		<h2>EL DTD</h2>
+		<section>
+			<p>Un DTD es un documento que define la estructura de un documento XML: los elementos, atributos, entidades, notaciones, etc, que pueden aparecer, el orden y el número de veces que pueden aparecer</p>
+		</section>
+	</article>
+	<hr/>
+	<aside>
+		<table style="border:1px solid black">
+			<caption>Algunos elementos correctos para la validacion</caption>
+			<tr style="border:1px solid black">
+				<td>head</td>
+				<td>title</td>
+				<td>base</td>
+				<td>link</td>
+				<td>meta</td>
+				<td>style</td>
+			</tr>
+			<tr style="border:1px solid black">
+				<td>body</td>
+				<td>section</td>
+				<td>nav</td>
+				<td>article</td>
+				<td>aside</td>
+				<td>header</td>
+			</tr>
+			<tr style="border:1px solid black">
+				<td>p</td>
+				<td>ol</td>
+				<td>ul</td>
+				<td>li</td>
+				<td>div</td>
+				<td>hr</td>
+			</tr>
+		</table>
+	</aside>
+	<hr/>
+	<footer><a href="#">contacto </a> <a href="#"> donde estamos </a> <a href="#"> aprende más</a></footer>
+</body>
+</html>

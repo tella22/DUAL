@@ -1,0 +1,202 @@
+#let{
+	background-color: #1B3C65;
+	font-family: Century Gothic;
+	width: 380px;
+	position: fixed;
+}
+/*titulo*/
+.fst{
+	font-size: 40px;
+	font-weight: lighter;
+	color: white;
+	margin-bottom: -15px;
+	margin-top: 0px;
+	margin-left: 112px;
+}
+.scnd{
+	font-size: 65px;
+	font-weight: bold;
+	color: white;
+	margin-top: -5px;
+	margin-bottom: -15px;
+	text-align: center;
+}
+.thrd{
+	font-size: 75px;
+	font-weight: bold;
+	color: #FCD12D;
+	margin-top: -5px;
+	text-align: center;
+	margin-bottom: -5px;
+	font-family: Tw Cen MT;
+}
+.pnts{
+	margin-bottom: -5px;
+	margin-top: -12px;
+	margin-left: 10px;
+	color: white;
+	font-size: 43px;
+	font-family: Baskerville Old Face;
+	display: block;
+	width: 290px;
+	float:left;
+}
+img{
+	width: 80px;
+	height: 56.55px;
+}
+/*titulo*/
+/*MAIL1*/
+h1.mail1{
+	font-size: 18px;
+	color: white;
+	margin-top: -50px;
+	margin-left: 8px;
+	margin-bottom: 5px;
+}
+img.mail1{
+	width: 130px;
+	height: 40px;
+	margin-top: 15px;
+	margin-bottom: 8px;
+	margin-left: 5px;
+	float: left;
+	margin-right: 35px;
+}
+div.mail1{
+	background-color: #FF4B4E;
+}
+/*MAIL 1*/
+/*MAIL 2*/
+img.mail2{
+	width: 130px;
+	height: 40px;
+	margin-top: 15px;
+	margin-bottom: 8px;
+	margin-left: 5px;
+	float: left;
+	margin-right: 35px;
+}
+div.mail2{
+	background-color: #FCD12D ;
+}
+h1.mail2{
+	font-size: 18px;
+	color: white;
+	margin-top: 0px;
+	margin-left: 8px;
+	margin-bottom: 5px;
+}
+/*MAIL 2*/
+/*MAIL 3*/
+h1.mail3{
+	font-size: 18px;
+	color: white;
+	margin-top: -50px;
+	margin-left: 8px;
+}
+img.mail3{
+	width: 150px;
+	height: 30px;
+	margin-top: 25px;
+	margin-bottom: 8px;
+	margin-left: 5px;
+	float: left;
+	margin-right: 20px;
+}
+div.mail3{
+	background-color: #90D560;
+}
+h1.mail3{
+	font-size: 18px;
+	color: white;
+	margin-top: 0px;
+	margin-left: 8px;
+	margin-bottom: 5px;
+}
+td.mid2{
+	font-family: Tw Cen MT;
+	font-size: 15px;
+	color:white;
+	width: 110px;
+}
+td.mid3{
+	font-family: Tw Cen MT;
+	font-size: 18px;
+	color:white;
+	width: 80px;
+}
+/*MAIL 3*/
+/*MAIL 4*/
+img.mail4{
+	width: 160px;
+	height: 40px;
+	margin-top: 10px;
+	margin-bottom: 8px;
+	margin-left: 5px;
+	float: left;
+	margin-right: 20px;
+}
+div.mail4{
+	background-color: #49E8F6;
+}
+h1.mail4{
+	font-size: 18px;
+	color: white;
+	margin-top: 0px;
+	margin-left: 8px;
+	margin-bottom: 5px;
+}
+/*MAIL 4*/
+/*predeterminado*/
+td.top1{
+	font-family: Tw Cen MT;
+	font-weight: bold;
+	font-size: 22px;
+	color:white;
+	width: 110px;
+	text-align: left;
+	letter-spacing: 2px;
+}
+td.top{
+	font-family: Tw Cen MT;
+	font-weight: bold;
+	font-size: 22px;
+	color:white;
+	letter-spacing: 2px;
+}
+td.mid1{
+	font-family: Tw Cen MT;
+	font-size: 15px;
+	width: 110px;
+	color:white;
+	text-align: left;
+}
+td.mid{
+	font-family: Tw Cen MT;
+	font-size: 15px;
+	color:white;
+	text-align: center;
+}
+td.bot{
+	font-family: Tw Cen MT;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+table{
+	border-collapse: collapse;
+}
+h1.info{
+	font-size: 10px;
+	color: white;
+	text-align: center;
+	padding-bottom: 7px;
+	letter-spacing: 1px;
+}
+h1.www{
+	font-size: 8px;
+	color: white;
+	text-align: center;
+}

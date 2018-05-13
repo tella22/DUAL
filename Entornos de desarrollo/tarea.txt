@@ -1,0 +1,28 @@
+3.1:En la clase VentanaDepart.java del proyecto FicheroAleatorioVentana que se encuentra en la carpeta de recursos, realiza los siguientes cambios:
+Extrae una variable local llamada existedepart de la cadena “DEPARTOMENTO EXISTE.”
+Extrae una constante local llamada NOEXISTEDEPART de la cadena “DEPARTAMENTO NO EXISTE.”
+Convierte la variable local creada en un atributo de la clase.
+Extrae una variable local llamada depar_error de la cadena “DEPARTAMENTO ERRÓNEO” y conviértela en un atributo de la clase.
+Refactorización en Eclipse - Actividades
+3.2: Extraer métodos dentro de la clase VentanaDepart.java
+Dentro del método public void actionPerformed(ActionEvent e), extrae varios métodos, uno para cada una de estas operaciones:
+Insertar departamento
+Consultar
+Borrar
+Modificar
+Extraer los métodos de las instrucciones que van dentro de los distintos if(e.getSource()), que preguntan por balta, consu, borra y modif, llamarlos altadepart, consuldepart, borradepart y modifdepart.
+Refactorización en Eclipse - Actividades
+3.3: 
+Cambia el nombre y los parámetros de los métodos creados anteriormente. 
+Añadir un parámetro de tipo String, valor por defecto “PRUEBA”
+Cambiar el tipo de dato devuelto en los métodos para que devuelvan un entero.
+Comprobar y corregir los errores de retorno.
+
+Refactorización en Eclipse - Actividades
+3.4:
+Crea la interfaz InterfaceVentanaDepart que contenga los métodos creados en la actividad 3.2. Al crear la interfaz solamente se pueden añadir los métodos públicos, así que haz los cambios que se necesiten para crearla.
+Refactorización en Eclipse - Actividades
+3.5:
+Crea la superclase SuperclaseDepart a partir de la clase VentanaDepart, que incluya solo los métodos de grabar y visualizar.
+Observa que la declaración de la clase ventana ahora es extends de SuperclaseDepart.
+Soluciona los errores generados (referencias a campos de la clase original y definición de objetos de la clase anidada con el parámetro this).

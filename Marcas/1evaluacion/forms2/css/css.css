@@ -1,0 +1,57 @@
+body{
+		font-family: Tahoma;
+		background: -webkit-linear-gradient(top, white, #DCDBFB);
+}			
+
+h1{
+color: #26266F;	
+}
+
+h2{
+	color: #1A1874;
+	font-weight: normal;
+}
+
+td{
+	text-align: right;
+	width: 150px;
+	color: darkblue;
+	font-size: 13px;
+}
+
+#selection{
+	text-align: left;
+}
+
+#fecha{
+	text-align: left;
+}
+#ask{
+	font-size: 10px;
+	text-align: left;
+}
+
+#registro{
+	float: left;
+	height: 32px;
+	width: 110px;
+	color: white;
+	background-color: #69CA65;
+}
+#reg{
+	color: #070C5B;
+	font-weight: bold;
+}
+input{
+	height: 25px;
+	width: 220px;
+	border:1px solid #8391D9;
+}
+
+select{
+	height: 25px;
+}
+
+#mes{
+	width: 100px;
+}

@@ -1,0 +1,37 @@
+12) Seleccionar los departamentos y la ciudad en la que están situados.
+12. select * from departments, locations where locations.location_id = departments.location_id;
+
+13) Seleccionar todos los empleados con su nombre de departamento.
+13. select department_name, first_name, last_name from departments, employees where employees.department_id = departments.department_id;
+
+14) Obtener los distintos departamentos de la tabla empleados.
+14. select distinct employees.department_id, department_name from employees, departments where employees.department_id = departments.department_id;
+
+15) Seleccionar el identificador, apellido y oficio (nombre de oficio) de los empleados que Pertenezcan al departamento 80.
+15. select employee_id, last_name, department_id, employees.job_id, job_title from employees, jobs where department_id=80 and employees.job_id = jobs.job_id and departments.department_id = employees.department_id;
+
+16) Obtener el apellido y el oficio de los empleados cuyo oficio no sea Jefe de ventas, Sales Manager.
+16. select last_name, jobs.job_title from employees, jobs where employees.job_id != 'SA_MAN' and jobs.job_id = employees.job_id;
+
+17) Selecciona los departamentos, ciudad y país donde están ubicados.
+17. select department_id, department_name, city, country_name from departments, locations, countries where departments.location_id = locations.location_id and locations.country_id = countries.country_id;
+
+18) Selecciona el apellido, nombre de oficio y nombre de departamento de todos los empleados cuyo apellido comienza por a y tiene más de 6 letras.
+18A. select last_name, job_title, department_name from employees,departments,jobs where (employees natural join jobs) join departments using (departments_id) and last_name like 'A_____%'); 
+
+18B. select last_name, job_title, department_name from employees,departments,jobs where (employees.department_id = departments.department_id and employees.job_id = jobs.job_id and last_name like 'A_____%');
+
+19) Selecciona el apellido de los empleados que tengan el mismo oficio que su jefe.
+19. select e.last_name from employees e, employees j where j.employee_id = e.manager_id and j.job_id = e.job_id;
+
+20) Obtener el apellido de los empleados junto con el apellido de su correspondiente jefe ordenado por el apellido del director.
+Composiciones o combinaciones basadas en desigualdad.
+20. (select jef.last_name as "Apellido Jefe", tra.last_name as "Apellido trabajador" from employees tra, employees jef where jef.employee_id = tra.manager_id) order by (jef.last_name); 
+
+21) Listar los empleados de departamentos con código mayor que el código del departamento de Marketing (hacerlo mediante subconsulta y mediante consultas multitabla).
+21.
+subconsulta:
+(select first_name, last_name from employees where department_id > (select department_id from departments where DEPARTMENT_NAME = 'Marketing')) order by last_name;
+
+multitabla:
+(select first_name, last_name from employees, departments where employees.department_id > departments.department_id and departments.department_name = 'Marketing') order by employees.last_name;

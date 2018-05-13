@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsi:schema targetNamespace="http://www.iesluisbraille.es/1ASIR/catalogo_libros"
+    elementFormDefault="qualified"
+    xmlns="http://www.iesluisbraille.es/1ASIR/catalogo_libros"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xsi:element name="catalogoLibro">
+    <xsi:complexType>
+      <xsi:sequence>
+        <xsi:element maxOccurs="unbounded" ref="libro"/>
+      </xsi:sequence>
+    </xsi:complexType>
+  </xsi:element>
+  <xsi:element name="libro">
+    <xsi:complexType>
+      <xsi:sequence>
+        <xsi:element name="titulo" type="xsi:string"/>
+        <xsi:element name="autor" type="xsi:string"/>
+        <xsi:element name="fecha">
+          <xsi:complexType>
+            <xsi:sequence>
+              <xsi:element name="mes"/>
+              <xsi:element name="anyo"/>
+            </xsi:sequence>
+          </xsi:complexType>
+        </xsi:element>
+        <xsi:element name="ISBN" type="xsi:int"/>
+        <xsi:element name="editor" type="xsi:string"/>
+      </xsi:sequence>
+      <xsi:attribute name="categoria" use="required">
+        <xsi:simpleType>
+          <xsi:restriction base="xsi:string">
+            <xsi:enumeration value="autobiografia"/>
+            <xsi:enumeration value="noficcion"/>
+            <xsi:enumeration value="ficcion"/>
+          </xsi:restriction>
+        </xsi:simpleType>
+      </xsi:attribute>
+      <xsi:attribute name="enstock" type="xsi:boolean" default="false"/>
+      <xsi:attribute name="revisor"/>
+    </xsi:complexType>
+  </xsi:element>
+
+</xsi:schema>

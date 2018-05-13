@@ -1,0 +1,171 @@
+/*ul li {
+	float: left;
+	font-family: segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 20px;
+	line-height:32px;
+	height: 40px;
+	float:left;
+ 	right:50%;
+	text-align: center;
+}
+
+ul a {
+	text-decoration: none;
+	color: #0080FF;
+	display: block;
+	text-transform: uppercase;
+	padding: 4px;
+	font-weight: bold;
+	width: 120px;
+}
+
+ul a:hover{
+	background-color: #00054f;
+}
+
+ul a:active{
+	background-color: white;
+}
+
+#menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #444;
+	text-align: center;
+	width: 521px;	
+	float:left;
+ 	left:auto;
+	position:relative;
+}*/
+
+/*menu horizontal*/
+
+body {
+    background-image: url(images/backdamask.png);
+    background-repeat: repeat;
+}
+ 
+#menuback {
+ 	background-color:#2f3030;
+    position:relative;
+    width:auto;
+    height:50px;
+    z-index:-1;
+    margin:0 auto;
+    padding:0px;
+    list-style-type:none;
+    text-align: center; /*con esto mas inline-block en ul centro la lista */
+}
+ 
+#menuback ul{
+    position:relative;
+    width:700px;/*este valor tiene que ser igual a la suma de cada li */
+    margin: 0 auto;
+    display:inline-block;/*para centrar el menu*/
+}
+ 
+#menuback li{
+    list-style:none;
+    position:relative;
+    float:left;
+    margin-left:2px;
+    top:5px;
+    border: 1px solid #BDBDBD; 
+	font-family: segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	line-height:25px;
+}
+
+#menuback a{
+	text-decoration: none;
+	color: #BDBDBD;
+	display: block;
+	text-transform: uppercase;
+	margin-top: 4px;
+	font-weight: bold;
+	font-size: 19px;
+}
+
+#menuback ul li, #menuback a{height:36px; width:100px; display:block;}
+
+*{
+	margin:0px;
+	padding:0px;
+	font-family: ;
+	color:black;
+}
+
+/*menu lateral*/
+
+div#barra-lateral{
+	position:fixed;
+	width:65px;
+	height:100%;
+	background-color:#2f3030;
+	overflow:hidden;
+	-webkit-transition:width 0.5s cubic-bezier(.61,.01,.37,1);
+}
+
+div#barra-lateral:hover{
+	width:170px;
+}
+
+div#logo-menu{
+	width:40px;
+	height:40px;
+	margin:10px;
+	background-image:url(pictures/menu.png);
+}
+
+div#contenedor-logos-primero{
+	margin-top:70px;
+}
+
+div.contenedor-logos{
+	margin-top:20px;
+	margin-left:10px;
+	width:130px;
+	height:40px;
+	
+}
+
+div.logo{
+	width:40px;
+	height:40px;
+	background-image:url(pictures/menu.png);
+	float: left;
+}
+
+p.title-menu{
+	margin-left:60px;
+	line-height: 40px;
+	color:#bcbcbc;
+}
+
+/*body*/
+
+div#texto{
+	width:50%;
+	min-height:300px;
+	float:left;
+}
+
+p#texto-contenedor-1{
+	font-size:25px;
+	margin:30px;
+	margin-top:50px;
+	color:#595959;
+}
+
+img#foto-contenedor-1{
+	margin:auto;
+	margin-top:15px;
+	width:300px;
+	display:block;
+}
+
+div#noticia {
+	text-align: center;
+	text-transform: uppercase;
+}

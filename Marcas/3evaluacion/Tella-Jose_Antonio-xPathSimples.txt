@@ -1,0 +1,108 @@
+············PARTE 1·············
+
+
+XPath - Ejercicio 1-1
+Nombre del Instituto:
+//ies/nombre
+
+XPath - Ejercicio 1-2
+Página web del Instituto:
+//ies/nombre
+
+XPath - Ejercicio 1-3
+Nombre de los Ciclos Formativos:
+//ies/ciclos/ciclo/nombre/text()
+
+XPath - Ejercicio 1-4
+Siglas por las que se conocen los Ciclos Formativos:
+//@id
+
+XPath - Ejercicio 1-5
+Años en los que se publicaron los decretos de título de los Ciclos Formativos:
+//ies/ciclos/ciclo/decretoTitulo/@año
+
+XPath - Ejercicio 1-6
+Ciclos Formativos de Grado Medio (se trata de obtener el elemento <ciclo> completo):
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ies/ciclos/ciclo[grado="Medio"]
+//ies/ciclos/ciclo/grado[.="Medio"]/..
+
+XPath - Ejercicio 1-7
+Nombre de los Ciclos Formativos de Grado Superior:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ies/ciclos/ciclo[grado=" Superior "]/nombre/text()
+//ies/ciclos/ciclo/grado[.="Superior"]/../nombre/text()
+
+XPath - Ejercicio 1-8
+Nombre de los Ciclos Formativos anteriores a 2010:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//nombre[../decretoTitulo/@año<2010]/text()
+ //decretoTitulo[@año<2010]/../nombre/text()
+
+XPath - Ejercicio 1-9
+Nombre de los Ciclos Formativos de 2008 o 2010:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+(//@año[.=2008]|//@año[.=2010])/../../nombre/text()
+//nombre[../decretoTitulo/@año<2010 or ../decretoTitulo/@año>2008]/text() 
+
+
+············PARTE 2·············
+
+
+XPath - Ejercicio 2-1
+Nombre de los módulos que se imparten en el Instituto:
+//ies/modulos/modulo/nombre/text()
+
+XPath - Ejercicio 2-2
+Nombre de los módulos del ciclo DAW:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//modulo[ciclo="DAW"]/nombre/text()
+//ies/modulos/modulo/ciclo[.="DAW"]/../nombre/text()
+
+XPath - Ejercicio 2-3
+Nombre de los módulos que se imparten en el segundo curso de cualquier ciclo:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ies/modulos/modulo[curso=2]/nombre/text()
+//ies/modulos/modulo/curso[.=2]/../nombre/text()
+
+XPath - Ejercicio 2-4
+Nombre de los módulos de menos de 5 horas semanales:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ies/modulos/modulo/horasSemanales[.<5]/../nombre/text()
+//ies/modulos/modulo[curso=2]/nombre/text()
+
+XPath - Ejercicio 2-5
+Nombre de los módulos que se imparten en el primer curso de DAW:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ies/modulos/modulo[ciclo = "DAW" and curso=2]/nombre/text()
+//nombre[../ciclo="ASIR" and ../curso=1]/text()
+
+XPath - Ejercicio 2-6
+Horas semanales de los módulos de más de 3 horas semanales:
+Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ies/modulos/modulo/horasSemanales[.>3]/text()
+//ies/modulos/modulo[horasSemanales>3]/horasSemanales/text()
+
+
+············PARTE 3·············
+
+
+XPath - Ejercicio 3-1
+Nombre de los módulos del ciclo "Sistemas Microinformáticos y Redes" (en la expresión final no deben aparecer las siglas SMR):
+//modulo[ciclo="SMR"]/nombre/text()
+
+XPath - Ejercicio 3-2
+Nombre de los ciclos que incluyen el módulo "Lenguajes de marcas y sistemas de gestión de información":
+//modulo[nombre="Lenguajes de marcas y sistemas de gestión de información"]/ciclo/text()
+
+XPath - Ejercicio 3-3
+Nombre de los módulos de ciclos de Grado Superior:
+//modulo[ciclo="DAW" or ciclo="DAM"]/nombre/text()
+
+XPath - Ejercicio 3-4
+Nombre de los módulos de ciclos cuyo título se aprobó en 2008:
+  //modulo[ciclo=//decretoTitulo[@año=2008]/../@id]/nombre/text()
+
+XPath - Ejercicio 3-5
+Grado de los ciclos con módulos de primer curso:
+  //ciclo[@id=//modulo[curso=1]/ciclo]/nombre/text() 

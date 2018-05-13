@@ -1,0 +1,40 @@
+--1. Obtener una lista de todos los productos indicando para cada uno su idfab,
+--idproducto, descripción, precio y precio con I.V.A. incluido (es el precio anterior
+--aumentado en un 16%).
+select idfab, idproducto, descripcion, precio, precio+precio*0.16 as "precio con IVA" from productos;
+
+--2. De cada pedido queremos saber su número de pedido, fab, producto, cantidad,
+--precio unitario e importe.
+select fab, numpedido, producto, cant, importe, round(importe/cant, 2)as "precio unitario" from pedidos;
+
+--3. Obtener la lista de los clientes ordenados por código de representante asignado,
+--visualizar todas la columnas de la tabla.
+select * from clientes order by repclie;
+
+--4. Obtener las oficinas ordenadas por orden alfabético de región y dentro de cada
+--región por ciudad, si hay más de una oficina en la misma ciudad, aparecerá
+--primero la que tenga el número de oficina mayor.
+select * from oficinas order by region, ciudad, oficina;
+
+--5. Obtener los pedidos ordenados por fecha de pedido.
+select * from pedidos order by fechapedido;
+
+--6. Listar los números de los empleados que tienen una oficina asignada.
+select numemp from empleados where oficina is not null order by numemp;
+
+--7. Listar los números de las oficinas que no tienen director.
+select oficina from oficinas where dir is null;
+
+--8. Listar los datos de las oficinas de las regiones del norte y del este (tienen que
+--aparecer primero las del norte y después las del este).
+select * from oficinas where region='norte' or region='este';
+select * from oficinas where region like 'este' or region like 'norte';
+
+--9. Listar los empleados de nombre Julia. Listar los clientes de nombre Julia.
+(select nombre from empleados where nombre like 'Julia %') union (select nombre from clientes where nombre like 'Julia %');
+
+--10. Listar los productos cuyo idproducto acabe en x.
+select * from productos where idproducto like '_%x%';
+
+--11. Listar los productos cuyo idproducto empieze por 4.
+select * from productos where idproducto like '4%';

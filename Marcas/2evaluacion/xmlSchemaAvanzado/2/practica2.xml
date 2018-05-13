@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--<!DOCTYPE catalogoLibro SYSTEM "practica2.dtd">-->
+
+
+<catalogoLibro
+    xmlns="http://www.iesluisbraille.es/1ASIR/catalogo_libros"
+    xmlns:xsi="http://www.w3school.com/schema-instance"
+    xsi:schemaLocation="http://www.iesluisbraille.es/1ASIR/catalogo_libros practica2.xsd">
+  
+  <libro categoria="autobiografia">
+    <titulo>Titulo</titulo>
+    <autor>Autor</autor>
+    <fecha>
+      <mes>03</mes>
+      <anyo>1997</anyo>
+    </fecha>
+    <ISBN>2341</ISBN>
+    <editor>asdasdasd</editor>
+  </libro>
+</catalogoLibro>

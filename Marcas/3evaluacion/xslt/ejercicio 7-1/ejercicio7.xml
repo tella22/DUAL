@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<catalogo>
+  <libro isbn="i1">
+    <titulo>Don Quijote</titulo>
+    <autores>
+      <autor nacimiento="1547">Cervantes</autor>
+    </autores>
+  </libro>
+  <libro isbn="i2">
+    <titulo>Antología</titulo>
+    <autores>
+      <autor nacimiento="1898">Lorca</autor>
+      <autor nacimiento="1910">Miguel Hernández</autor>
+    </autores>
+  </libro>
+</catalogo>

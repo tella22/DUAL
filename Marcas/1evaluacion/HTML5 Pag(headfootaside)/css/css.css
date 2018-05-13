@@ -1,0 +1,121 @@
+*{
+	margin: auto;
+}
+body{
+	font-family: arial;
+	background-color: #f4d4d3;
+}
+header{
+	text-align: center;
+	background-color: white;
+	padding: 2%;
+}
+header h1{
+	color: navy;
+	font-size: 24px;
+	margin-bottom: 3%;
+}
+header h2{
+	color: #663366;
+	font-size: 19px;
+}
+nav{
+	background-color: #005853; 
+	min-height: 32px;
+}
+nav p{
+	display: inline;
+}
+nav a{
+	color: yellow;
+	text-decoration: none;
+	background-color: #027244;
+	margin: 4px; 
+}
+nav a:hover{
+	text-decoration: none; 
+	color: #9bf5ff; 
+	background-color: #543683;
+}
+section{
+	width: 75%; 
+	background-color: #deeebc; 
+	float: left; 
+}
+section h1{
+	color: olive;	
+	text-align: center;
+	padding:8px;
+	font-size: 22px;
+}
+section h2{
+	color: grey;
+	text-align: center;
+	padding:8px;
+	font-size: 19px;
+}
+section h3{
+	text-align: left; 
+	padding: 4px 48px; 
+	color: #663366; 
+	font-size: 16px;
+}
+section  article{
+	margin: 8px 48px; 
+	padding: 8px 32px; background-color: white; 
+	border: 3px double aqua;
+}
+section p{
+	text-align: justify;
+}
+aside{
+	width: 25%;
+	float:left;
+}
+
+#anuncio1{ 
+	margin: 20px; 
+	padding: 10px; 
+	border: 2px solid blue; 
+	background-color: white;
+}
+
+#anuncio1 h1{ 
+	font-size: 1.1em; 
+	text-align: left;
+	padding: 0.2em 0em; 
+}
+#anuncio1 h2{ 
+	font-size: 1.5em; 
+	text-align: center; 
+	padding: 0.5em 0em; 
+}
+#anuncio1 p{ 
+	font-size: 0.9em;
+ 	padding: 0.2em 1em; 
+}
+
+footer{
+	clear: both;
+	background-color: #ccffff;
+}
+footer{ 
+	clear: both; 
+	background-color: 
+	#ccffff; 
+}
+footer h1{ 
+	text-align: center; 
+	font-size: 1.4em; 
+	color: navy; 
+	padding: 0.7em; 
+}
+footer h2{ 
+	text-align: center; 
+	font-size: 1em; 
+	padding: 0.4em; 
+}
+footer a{ 
+	text-decoration: none; 
+	color: green; 
+}

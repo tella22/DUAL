@@ -1,0 +1,32 @@
+body{
+
+	background: #CFC;
+	font-family: Georgia, Cambria, serif;
+	font-size: 16px;
+	color:#00F;
+}
+h1{
+	color:#f00;
+	font-family: Verdana, Calibri, sans-serif;
+	font-size: 32px;
+}
+h2{
+	color:#A00;
+	font-family: Verdana, Calibri, sans-serif;
+	font-size: 24px;
+}
+.htmlcss{
+	color: #FFF;
+	background-color: #000;
+	font-style: italic;	
+	font-size: 16px;
+}
+.spanbig{
+	color: #00f;
+	font-size: 20px;
+	font-weight: bold;
+}
+.ul{
+	color: #060;
+}
+

@@ -1,0 +1,66 @@
+when not_data_found then
+	~~~~~~~~~~~~~~~~
+
+when too_many_rows then
+	~~~~~~~~~~~~~~~~
+
+when others then
+	~~~~~~~~~~~~~~~~
+
+end;
+
+
+
+declare (is,as)
+
+	nombre exception;
+
+begin
+	
+	raise nombre; (para activar);
+
+-exception
+	
+	when nombre then
+	~~~~~~~~~~~~~~~~
+
+end;
+
+declare (is,as)								|
+											|
+	nombre exception;						|
+											|
+begin										|
+											|
+	begin									|
+											|
+		raise nombre; (para activar);		|
+											|------------> asi no perdemos la ejecucuion 
+											|			   del programa una vez que "explota"
+	end;									|
+											|
+-exception									|
+											|
+	when nombre then						|
+	~~~~~~~~~~~~~~~~						|
+											|
+end;										|
+
+
+
+
+declare
+
+	cursor nombre is "consulta(ROWID)" for update
+
+begin
+	
+	update
+		
+			select
+				
+					current cursor
+
+					WHERE ROWID
+
+end;

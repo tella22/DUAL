@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>     
+
+<p:persona 
+  xmlns:p="http://www.prueba.es/persona"
+  xmlns:d="http://www.prueba.es/docencia"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.prueba.es/persona docencia.xsd" >
+  
+  <nombre>Pepe</nombre>
+  <apellidos>García</apellidos>
+  <comentario>repetidor</comentario>
+
+  <grupo>1ASIR</grupo>
+  <d:asignatura>
+    <Nombre_Asignatura>Lenguaje de Marcas</Nombre_Asignatura>
+    <Horas_Semanales>4 horas</Horas_Semanales>
+    <profesor>Juan Moreno</profesor>
+  </d:asignatura>
+  <d:asignatura>
+    <Nombre_Asignatura>Fundamentos de Hardware</Nombre_Asignatura>
+    <Horas_Semanales>3 horas</Horas_Semanales>
+    <profesor>Virginia López</profesor>
+  </d:asignatura>
+</p:persona>

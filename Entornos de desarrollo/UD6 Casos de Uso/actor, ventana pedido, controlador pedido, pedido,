@@ -1,0 +1,19 @@
+diagrama de Casos de Usos:
+
+- el sistema debe permitir realizar un seguimiento de las practicas de enoresa de los alumnos de FP
+
+- hay dos tipos de usuario: alumno y tutor
+
+- el profesor debe poder crear un cuaderno de seguimiento para un alumno en una empresa
+
+- el profesor debe poder ver la lista de cuadernos recogidos en el sistema
+
+- el profesor debe consultar la lista de alumnos y en caso necesario añadir nuevos
+
+- el profesor puede leer el contenido de los cuadernos de seguimiento
+
+- el alumno debe agregar diariamente una reseña de la tarea realizada en la empresa
+
+- el alumno puede modificar una reseña ya registrada
+
+- el alumno puede ver la lista de reseñas en forma de listado o blog

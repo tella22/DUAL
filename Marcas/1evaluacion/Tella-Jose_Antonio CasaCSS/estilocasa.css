@@ -1,0 +1,46 @@
+div{
+    position: absolute;
+    border: solid black 3px;
+    padding: 5px;
+}
+div.casa{ 
+    height: 150px; 
+    width: 200px;
+    background-color: grey;
+}
+#h1{ 
+    top: 100px; 
+    left: 150px;
+}
+div.puerta{ 
+    height: 50px; 
+    width: 50px;
+    background-color: maroon;
+    top:142px; 
+    left: 78px;
+    /*colocamos la puerta respecto al top y al margen iquierdo*/
+  }     
+div.tejado{ 
+    height: 30px; 
+    width: 220px;
+    background-color: red;
+    top: -48px; 
+    left: -13px; 
+    /*lo movemos respecto al top y la izquierda*/
+}
+div.ventana{ 
+    height: 30px; 
+    width: 30px;
+    background-color: blue;
+    top:70px; 
+    left: 25px; 
+    /*colocamos la ventana izquierda respecto al top y al margen iquierdo*/
+}
+div.ventana2{ 
+    height: 30px; 
+    width: 30px;
+    background-color: blue;
+    top:110px; 
+    left: 160px;
+    /*colocamos la ventana derechas respecto al top y al margen iquierdo*/
+} 

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE facturas SYSTEM "practica5.dtd">
+
+<facturas>
+
+  <factura>
+    <datos_cliente>
+      <nombre></nombre>
+      <primer_apellido></primer_apellido>
+      <segundo_apellido></segundo_apellido>
+      <DNI></DNI>
+      <telefono></telefono>
+      <ID_cliente ID_CL=""></ID_cliente>
+    </datos_cliente>
+
+    <datos_ticket>
+      <resguardo_factura></resguardo_factura>
+      <alquileres>
+        <pelicula>
+          <ID_pelicula id=""></ID_pelicula>
+          <valoracion nota=""></valoracion>
+          <titulo></titulo>
+          <genero></genero>
+          <duracion></duracion>
+          <actor1>
+            <nombre></nombre>
+            <apellidos></apellidos>
+          </actor1>
+          <actor2>
+            <nombre></nombre>
+            <apellidos></apellidos>
+          </actor2>
+          <actor3>
+            <nombre></nombre>
+            <apellidos></apellidos>
+          </actor3>
+          <caratula></caratula>
+        </pelicula>
+        <fecha_devolucion></fecha_devolucion>
+      </alquileres>
+
+      <compras>
+        <DVD>
+          <titulo_DVD></titulo_DVD>
+          <fecha_salida></fecha_salida>
+          <extras extras=""></extras>
+        </DVD>
+        <cinta>
+          <tipo></tipo>
+          <rebobinada estado=""></rebobinada>
+        </cinta>
+      </compras>
+
+      <resguardo>
+        <forma_pago pago=""></forma_pago>
+        <total></total>
+      </resguardo>
+    </datos_ticket>
+  </factura>
+  
+</facturas>

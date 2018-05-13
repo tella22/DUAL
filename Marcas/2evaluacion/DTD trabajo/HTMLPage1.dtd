@@ -1,0 +1,36 @@
+﻿<?xml encoding="UTF-8"?>
+
+<!ELEMENT html (head, body)>
+<!ATTLIST html lang CDATA "es"
+		  xmlns CDATA "http://www.w3.org/1999/xhtml">
+<!ELEMENT head (meta, title)>
+<!ELEMENT body (header, hr, nav, hr, main*, hr, article*, hr, aside, hr, footer)>
+
+	<!ELEMENT header (h1)>
+	<!ELEMENT hr EMPTY>
+	<!ELEMENT nav (a+)>
+	<!ELEMENT main (p, img)+>
+	<!ELEMENT article (h2, section)+>
+	<!ELEMENT aside (table)+>
+	<!ELEMENT footer (a+)>
+
+<!ELEMENT section (p)>
+<!ELEMENT table (caption, tr+)>
+<!ELEMENT tr (td+)>
+<!ELEMENT td (#PCDATA)>
+<!ELEMENT caption (#PCDATA)>
+<!ELEMENT h2 (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT meta EMPTY>
+<!ELEMENT p (#PCDATA)>
+<!ELEMENT h1 (#PCDATA)>
+<!ELEMENT img EMPTY>
+<!ELEMENT a (#PCDATA)>
+
+<!ATTLIST meta charset CDATA "utf-8"
+			   content CDATA "prueba">
+<!ATTLIST a href CDATA "s">
+<!ATTLIST img src CDATA "f"
+			  alt CDATA "img">
+<!ATTLIST table style CDATA "img">
+<!ATTLIST tr style CDATA "img">

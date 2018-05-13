@@ -1,0 +1,397 @@
+-- 1. Desarrollar un procedimiento que visualice el apellido del cliente y la fecha de pedido de todos los pedidos ordenados por apellido.
+
+create or replace procedure ejercicio1 
+is
+  cursor cur is 
+    select clientes.apellidos, pedidos.fecha_pedido 
+    from pedidos join clientes on pedidos.id_cliente = clientes.id_cliente
+    order by clientes.apellidos;
+    v_apellido clientes.apellidos%type;
+    v_fecha pedidos.fecha_pedido%type;
+begin
+  OPEN cur;
+    LOOP
+    FETCH cur INTO v_apellido, v_fecha;
+    EXIT WHEN cur%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(v_apellido || ' * ' || v_fecha);
+  END LOOP;
+  CLOSE cur;
+end;
+
+execute ejercicio1();
+
+
+-- 2. Codificar un procedimiento que muestre la descripción de cada categoría y el número de productos que tiene.
+
+create or replace procedure ejercicio2
+is
+  cursor cur is
+		select categorias.descripcion, count(productos.nombre) as total
+		from productos join categorias on productos.id_categoria = categorias.id_categoria
+		group by categorias.descripcion;
+v_descripcion categorias.descripcion%type;
+v_total number;
+begin
+  OPEN cur;
+    LOOP
+    FETCH cur INTO v_descripcion, v_total;
+    EXIT WHEN cur%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(v_descripcion || ' * ' || v_total);
+  END LOOP;
+  CLOSE cur;
+end;
+
+execute ejercicio2;
+
+-- 3. Escribir un procedimiento que reciba una cadena y visualice el apellido y el identificador de empleado de todos los empleados cuyo apellido contenga la cadena especificada. Al finalizar visualizar el número de empleados mostrados.
+
+create or replace procedure ejercicio3 (
+                      p_apellido String)
+is 
+  cursor cur is
+    select apellidos, id_empleado
+    from empleados
+    where APELLIDOS LIKE '%' || p_apellido || '%';
+    v_apellidos empleados.apellidos%type;
+    v_id_empleado empleados.id_empleado%type;
+begin
+  OPEN cur;
+    LOOP
+    FETCH cur INTO v_apellidos, v_id_empleado;
+    EXIT WHEN cur%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(v_apellidos || ' * ' || v_id_empleado);
+  END LOOP;
+  CLOSE cur;
+end;
+
+execute ejercicio3('ayo');
+
+-- 4. Escribir un programa que visualice el apellido y el total gastado de los cinco clientes que más han gastado.
+
+create or replace procedure ejercicio4 
+is 
+  cursor cur is
+	select *
+	from (SELECT clientes.apellidos, sum(pedidos.precio_total) total
+      		from clientes join pedidos on pedidos.id_cliente = clientes.id_cliente
+      		group by clientes.apellidos
+      		order by total desc)
+	where ROWNUM <= 5;
+    v_apellidos empleados.apellidos%type;
+    v_total number;
+begin
+  OPEN cur;
+    LOOP
+    FETCH cur INTO v_apellidos, v_total;
+    EXIT WHEN cur%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(v_apellidos || '     |     ' || v_total);
+  END LOOP;
+  CLOSE cur;
+end;
+
+execute ejercicio4;
+
+-- 5. Codificar un programa que visualice los dos productos que menos se han vendido de cada categoría.
+
+CREATE OR REPLACE
+PROCEDURE ejercicio5
+IS  
+  v_categoria productos.id_categoria%TYPE;
+  CURSOR cur
+  IS
+    SELECT categoria, numero_producto
+    FROM
+      (SELECT productos.id_categoria AS categoria,
+        numero_producto,
+        SUM(cantidad) AS total
+      FROM productos NATURAL
+      JOIN detalles_pedidos
+      GROUP BY productos.id_categoria,
+        numero_producto
+      ORDER BY id_categoria,
+        total
+      )
+  WHERE ROWNUM <= 2
+  AND categoria = v_categoria;
+  v_categ productos.id_categoria%TYPE;
+  v_prod productos.numero_producto%type;
+  CURSOR categoria
+  IS
+    SELECT distinct id_categoria FROM productos order by id_categoria;
+BEGIN
+  OPEN categoria;
+  LOOP
+    FETCH categoria INTO v_categoria;
+    EXIT
+  WHEN categoria%NOTFOUND;
+    OPEN cur;
+    LOOP
+      FETCH cur INTO v_categ, v_prod;
+      EXIT
+    WHEN cur%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(v_categ || '     |     ' || v_prod);
+    END LOOP;
+    CLOSE cur;
+  END LOOP;
+  CLOSE categoria;
+END;
+
+EXECUTE ejercicio5;
+
+-- 6. Escribir un programa que muestre en formato similar a las rupturas de control los siguientes datos:
+
+-- a. Para cada producto: nombre y precio_venta.
+-- b. Para cada categoría: número de productos y valor de los productos en stock de esa categoría.
+-- c. Al final del listado: número total de productos y valor de todos los productos en stock.
+
+___________________________________________________________________________________________________
+
+create or replace 
+procedure ejercicio6
+is
+  v_categoria_actu productos.id_categoria%type;
+  cursor cur
+  is
+    select nombre, precio_venta, id_categoria, stock
+    from productos
+    order by id_categoria;
+    v_nombre_prod productos.nombre%type;
+    v_precio_prod productos.precio_venta%type;
+    v_productos_categoria productos.id_categoria%type;
+    v_total_productos_categoria number(2);
+    v_categoria_actual productos.id_categoria%type;
+    v_total_precio_categoria number(12,2);
+    v_stock productos.stock%type;
+    v_total_productos number(2);
+    v_total_precio number(12,2);
+begin
+  v_categoria_actual := 1;
+  v_total_precio_categoria := 0;
+  v_total_productos_categoria := 0;
+  v_total_productos := 0;
+  v_total_precio := 0;
+  open cur;
+  loop
+    fetch cur into v_nombre_prod, v_precio_prod, v_productos_categoria, v_stock;
+    exit
+  when cur%NOTFOUND;
+      if v_productos_categoria != v_categoria_actual then
+        DBMS_OUTPUT.PUT_LINE('___________________________________________________');
+        DBMS_OUTPUT.PUT_LINE('categoria: ' || v_categoria_actual || '; ' || v_total_productos_categoria || ' productos ' || v_total_precio_categoria || ' €' );
+        DBMS_OUTPUT.PUT_LINE('___________________________________________________');
+        v_categoria_actual := v_productos_categoria;
+        v_total_productos_categoria := 0;
+        v_total_precio_categoria := 0;
+      end if;
+        DBMS_OUTPUT.PUT_LINE(v_nombre_prod || '     |     ' || v_precio_prod);
+        v_total_productos_categoria := v_total_productos_categoria + 1;
+        v_total_precio_categoria := v_total_precio_categoria + (v_stock * v_precio_prod);
+        v_total_productos := v_total_productos + 1;
+        v_total_precio := v_total_precio + + (v_stock * v_precio_prod);
+  end loop;
+        v_total_productos := v_total_productos + v_total_productos_categoria;
+        v_total_precio := v_total_precio + v_total_precio_categoria;
+        DBMS_OUTPUT.PUT_LINE('___________________________________________________');
+        DBMS_OUTPUT.PUT_LINE('Categoria: ' || v_categoria_actual || '; ' || v_total_productos_categoria || ' productos ' || v_total_precio_categoria || ' €' );
+        DBMS_OUTPUT.PUT_LINE('___________________________________________________');
+        DBMS_OUTPUT.PUT_LINE('Total productos: ' || v_total_productos || ', total precio: ' || v_total_precio || '€');
+        DBMS_OUTPUT.PUT_LINE('___________________________________________________');
+close cur;
+end;
+
+execute ejercicio6;
+
+___________________________________________________________________________________________________
+
+
+-- 7. Desarrollar un procedimiento que permita insertar nuevas categorías según las siguientes especificaciones:
+
+
+
+- Se pasará al procedimiento la descripción de la categoría.
+- El procedimiento insertará la fila nueva asignando como número de categoría la decena siguiente al número mayor de la tabla.
+- Se incluirá la gestión de posibles errores.
+
+create or replace 
+procedure ejercicio7
+  (p_desc String)
+is 
+  v_desc_par varchar(40);
+  v_categoria_max Integer;
+  v_categoria_max_nueva Integer;
+begin
+  v_desc_par := p_desc;
+  select max(id_categoria) into v_categoria_max
+                     from categorias;
+  v_categoria_max_nueva := v_categoria_max + 10;
+  
+  insert into categorias(id_categoria, descripcion)
+  values (v_categoria_max_nueva , v_desc_par);
+  
+end ejercicio7;
+
+execute ejercicio7('Esto es una prueba');
+
+-- 8. Escribir un procedimiento que reciba todos los datos de un nuevo producto y procese la transacción de alta, gestionando posibles errores.
+
+create or replace 
+procedure ejercicio8
+  (p_no_prod Integer, p_nombre varchar2, p_precio_venta Number, p_stock number, p_id_categoria number)
+is
+begin
+  insert into productos(numero_producto, nombre, descripcion, precio_venta, stock, id_categoria)
+  values (p_no_prod, p_nombre, null, p_precio_venta, p_stock, p_id_categoria);
+exception
+  when DUP_VAL_ON_INDEX then
+  DBMS_OUTPUT.PUT_LINE('El valor de la clave primaria (numero de producto) está ya en la tabla');
+  
+  when others then
+  DBMS_OUTPUT.PUT_LINE('El valor del identificador de categoria no existe en la tabal de origen');
+end ejercicio8;
+
+execute ejercicio8(42, 'Coche', 1500, 30, 1);
+
+-- 9. Codificar un procedimiento que reciba como parámetros un número de categoría, un importe y un porcentaje, y que suba el precio a todos los productos de la categoría indicada en la llamada. La subida será el porcentaje o el importe que se indica en la llamada (el que sea más beneficioso para la empresa en cada caso).
+
+
+
+-- 10. Realizar un procedimiento que suba el precio_venta a todos los productos de la categoría indicada en la llamada (dos parámetros: id_categoria y aumento en tanto por ciento).
+
+
+create or replace 
+procedure ejercicio10(p_id_categoria number, p_porcentaje_aumento Number)
+is
+  cursor cur is 
+    select precio_venta
+    from productos
+    where id_categoria = p_id_categoria for update;
+  v_precio_venta productos.precio_venta%type;
+  v_aumento number;
+begin
+    open cur;
+      FETCH cur INTO v_precio_venta;
+    WHILE cur%FOUND loop
+      v_aumento := (v_precio_venta * p_porcentaje_aumento) / 100;
+      UPDATE productos 
+      SET precio_venta = v_aumento
+      WHERE CURRENT OF cur;
+    end loop;
+    close cur;
+end ejercicio10;
+/
+
+execute ejercicio10(2, 50);
+
+
+-- 11. Modificar el procedimiento anterior utilizando ROWID.
+
+
+create or replace 
+procedure ejercicio11(p_id_categoria number, p_porcentaje_aumento Number)
+is
+  cursor cur is 
+    select precio_venta, rowid
+    from productos
+    where id_categoria = p_id_categoria;
+  v_cursor cur%ROWTYPE;
+  v_precio_venta productos.precio_venta%type;
+  v_aumento number;
+  v_aumentado number;
+begin
+    open cur;
+    loop
+      FETCH cur INTO v_cursor;
+      exit
+    when cur%NOTFOUND;
+      v_precio_venta := v_cursor.precio_venta;
+      v_aumento := (v_cursor.precio_venta * p_porcentaje_aumento) / 100;
+      v_aumentado := v_precio_venta + v_aumento;
+      UPDATE productos 
+      SET precio_venta = v_aumentado
+      WHERE rowid = v_cursor.rowid;   
+    end loop;
+      DBMS_OUTPUT.PUT_LINE('---Lineas Actualizadas---');
+    close cur;
+end ejercicio11;
+/
+
+rollback;
+
+execute ejercicio11(2, 50);
+
+-- 12. Escribir un procedimiento que suba el precio de todos los productos cuyo precio_venta sea menor que el precio medio de su categoría. La subida será del 50 por 100 de la diferencia entre el precio_venta del producto y la media de su categoría. Se deberá hacer que la transacción no se quede a medias, y se gestionarán los posibles errores.
+
+create or replace 
+PROCEDURE ejercicio12_tema12
+
+is
+
+cursor cur1 is
+  select nombre,id_categoria,precio_venta from productos;
+
+v_nombre varchar2(100); 
+v_precio_venta number (10):=0;
+v_precio_venta_medio number(10):=0;
+v_id_categoria number(3);
+v_calcular_subida number(10):=0;
+begin
+open cur1;
+fetch cur1 into v_nombre,v_id_categoria,v_precio_venta;
+while(cur1%found) loop
+  select avg(precio_venta) into v_precio_venta_medio
+    from productos where id_categoria=v_id_categoria
+    group by id_categoria;
+    
+  if v_precio_venta<v_precio_venta_medio then
+    v_calcular_subida:=v_precio_venta_medio-v_precio_venta;
+    v_calcular_subida:=v_calcular_subida*0.5+v_precio_venta;
+    update productos 
+      set precio_venta=v_calcular_subida 
+        where nombre=v_nombre;
+    DBMS_OUTPUT.PUT_LINE(v_nombre||' Se ha actualizado correctamente');
+  end if;
+  
+  fetch cur1 into v_nombre,v_id_categoria,v_precio_venta;
+end loop;
+EXCEPTION
+WHEN no_data_found THEN
+  raise_application_error(-20001,'La categoria no existe');
+WHEN program_error then
+  raise_application_error(-20000, 'Ha habido un problema');
+end;
+
+-- 13. Diseñar una aplicación que simule un listado de los ingresos obtenidos de los pedidos de nuestros clientes según las siguientes especificaciones:
+
+- El listado tendrá el siguiente formato:
+*********************************************************
+Datos del pedido:……..(1) Cliente:…(2) Empleado que atendió:…….(3) Fecha: ………..(4)
+Nombre de producto: ………..(5)   unidades pedidas: ………..(6) precio por unidad: …….(7)
+Número de líneas del pedido :…………..(8)
+Importe total del pedido:…………..(9)
+---------------
+Datos del pedido:……..(1) Cliente:…(2) Empleado que atendió:…….(3) Fecha: ………..(4)
+Nombre de producto: ………..(5)   unidades pedidas: ………..(6) precio por unidad: …….(7)
+Número de líneas del pedido :…………..(8)
+Importe total del pedido:…………..(9)
+---------------
+Importe total de todos los pedidos del cliente:…………..(10)
+
+-  -  -
+
+Importe total de todos los pedidos:…………..(11)
+*********************************************************
+
+Donde:
+- 1,2, 3 y 4 corresponden a número de pedido, apellidos del cliente, apellidos del empleado y fecha del pedido.
+- 5, 6 y 7 son el nombre de producto, unidades pedidas y precio por unidad aplicado a cada línea del pedido.
+- 8 es el número de líneas que tiene el pedido.
+- 9 es el importe total del pedido.
+- 10 es el importe total de los pedidos del cliente.
+- 11 es el importe total de todos los pedidos.
+
+El listado irá ordenado por apellidos del cliente.
+
+
+
+-- 14. Crear la tabla T_INGRESOS con las columnas: número de pedido, apellidos del cliente, apellidos del empleado que le atendió, fecha del pedido e importe total del pedido. Modificar la aplicación anterior para que, en lugar de realizar el listado directamente en pantalla, guarde los datos en la tabla. Se controlarán todas las posibles incidencias que puedan ocurrir durante el proceso
+

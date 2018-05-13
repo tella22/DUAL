@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE persona SYSTEM "practica4.dtd">
+
+<persona>
+
+  <nombre>Juan Pardo</nombre>
+  <nacimiento dia="10" mes="Abril" anyo="1982"></nacimiento>
+  <direccion>
+    <calle>Caoba, 1</calle>
+    <poblacion>Madrid</poblacion>
+    <provincia>Madrid</provincia>
+    <cpostal>28005</cpostal>
+  </direccion>
+  <varon></varon>
+  
+</persona>

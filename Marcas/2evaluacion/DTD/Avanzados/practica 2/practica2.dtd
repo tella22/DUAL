@@ -1,0 +1,37 @@
+<!ELEMENT cartelera (película)+>
+
+<!ELEMENT película (título,título_original?,nacionalidad,género,
+                    (clasificación|sin_clasificar),sinopsis,director,
+                    reparto+,(web,cartel)?)>
+<!ATTLIST película
+  año CDATA '2003'
+  código NMTOKEN #REQUIRED
+  duración CDATA #REQUIRED>
+
+<!ELEMENT título (#PCDATA)>
+
+<!ELEMENT título_original (#PCDATA)>
+<!ATTLIST título_original idref IDREF #REQUIRED>
+
+<!ELEMENT nacionalidad (#PCDATA)>
+<!ATTLIST nacioanlidad id ID #REQUIRED>
+
+<!ELEMENT género (#PCDATA)>
+
+<!ELEMENT clasificación EMPTY>
+<!ATTLIST clasificación
+  edad (tp|8|12|16|18) #REQUIRED>
+
+<!ELEMENT sin_clasificar EMPTY>
+
+<!ELEMENT sinopsis (#PCDATA)>
+
+<!ELEMENT director (#PCDATA)>
+
+<!ELEMENT reparto (actor)+>
+
+<!ELEMENT web (#PCDATA)>
+
+<!ELEMENT cartel (#PCDATA)>
+
+<!ELEMENT actor (#PCDATA)>

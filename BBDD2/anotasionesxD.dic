@@ -1,0 +1,131 @@
+_____________________________________________________________
+
+       Dictionary report
+
+       Project             PROJECT
+_____________________________________________________________
+
+
+
+                        schema Relacional/1
+
+   Anotaciones
+      ID_Anotacion
+      Comentario
+      id: ID_Anotacion
+         access key
+   Asteroides
+      ID_Asteroide
+      Nombre
+      id: ID_Asteroide
+         access key
+   cuerpo_celeste
+      ID_cue
+      ID_CCeleste
+      ID_Satelite[0-1]
+      ID_Planeta[0-1]
+      ID_Asteroide[0-1]
+      Nombre
+      ID_Sonda
+      id: ID_cue
+         access key
+      id': ID_CCeleste
+         access key
+      id': ID_Satelite
+         equ: =  Satelites.ID_Satelite
+         access key
+      id': ID_Planeta
+         equ: =  Planetas.ID_Planeta
+         access key
+      id': ID_Asteroide
+         equ: =  Asteroides.ID_Asteroide
+         access key
+      ref: ID_Sonda -> Sondas.ID_Sonda
+         access key
+      exactly one: ID_Asteroide, ID_Satelite, ID_Planeta
+   Investigadores
+      DNI_Investigador
+      Nombre
+      Apellidos
+      Fecha_de_nacimiento
+      Telefono
+      E_Mail
+      id: DNI_Investigador
+         access key
+   Organizaciones
+      ID_Org
+      Nombre
+      Pais_de_origen
+      ID_Sonda
+      id: ID_Org
+         access key
+      ref: ID_Sonda -> Sondas.ID_Sonda
+         access key
+   Exposicion
+      Id_Exp
+      Horario
+      id: Id_Exp
+         access key
+   hacen
+      ID_Anotacion
+      DNI_Investigador
+      id: DNI_Investigador, ID_Anotacion
+         access key
+      equ: DNI_Investigador = Investigadores.DNI_Investigador
+      equ: ID_Anotacion = Anotaciones.ID_Anotacion
+         access key
+   Planetas
+      ID_Planeta
+      Nombre
+      Volumen
+      ID_Anotacion
+      ID_Satelite
+      id: ID_Planeta
+         access key
+      ref: ID_Anotacion -> Anotaciones.ID_Anotacion
+         access key
+      ref: ID_Satelite -> Satelites.ID_Satelite
+         access key
+   Satelites
+      ID_Satelite
+      Nombre
+      id: ID_Satelite
+         access key
+   Sistemas_Planetarios
+      ID_SPla
+      nombre
+      ID_cue
+      id: ID_SPla
+         access key
+      equ: ID_cue = cuerpo_celeste.ID_cue
+         access key
+   Sondas
+      ID_Sonda
+      Nombre
+      Fecha_Lanzamiento
+      Fecha_de_Regreso
+      id: ID_Sonda
+         access key
+   Visitan
+      ID_Visita
+      Id_Exp
+      Nombre_de_visita
+      Fecha
+      DNI_Visitante
+      id: ID_Visita
+         access key
+      id': Id_Exp
+         equ: =  Exposicion.Id_Exp
+         access key
+      ref: DNI_Visitante -> Visitantes.DNI_Visitante
+         access key
+   Visitantes
+      DNI_Visitante
+      Nombre
+      Apellidos
+      Fecha_de_nacimiento
+      Telefono
+      E_Mail
+      id: DNI_Visitante
+         access key
+

@@ -1,0 +1,7 @@
+<!ELEMENT ediciones_aranda (informe_regional_de_ventas)>
+<!ELEMENT informe_regional_de_ventas (region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?, region, trimestre*, libros_vendidos?)>
+<!ELEMENT region (#PCDATA)>
+<!ELEMENT trimestre (#PCDATA)>
+<!ELEMENT libros_vendidos (#PCDATA)>
+<!ATTLIST informe_regional_de_ventas descripcion CDATA #REQUIRED>
+<!ATTLIST informe_regional_de_ventas fecha CDATA #REQUIRED>

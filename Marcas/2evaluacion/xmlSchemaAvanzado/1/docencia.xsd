@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:xs="http://www.prueba.es/docencia"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
+
+  <xs:element name="grupo" type="xs:string"/>
+  <xs:element name="asignatura">
+
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Nombre_Asignatura" type="xs:string"/>
+        <xs:element name="Horas_Semanales" type="xs:int"/>
+        <xs:element name="Profesor" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="nacimiento" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="info">
+    <xs:sequence>
+      <xs:element name="nombre"    type="xs:string"/>
+      <xs:element name="apellidos" type="xs:string"/>
+      <xs:element name="dni"       type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,39 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://w3schools.com"
+           xmlns="https://w3schools.com"
+           elementFormDefault="qualified">
+  
+  <xs:element name="resultado" type="resultadoType"/>
+
+  <xs:complexType name="resultadoType">
+    <xs:sequence>
+      <xs:element name="totalCount" type="xs:int"/>
+      <xs:element name="start" type="xs:int"/>
+      <xs:element name="rows" type="xs:int"/>
+      <xs:element name="result" type="resultado"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="resultado">
+      <xs:sequence>
+        <xs:element name="servicio-duelo" type="servicio" minOccurs="1" maxOccurs="200"/>
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="servicio">
+    <xs:sequence>
+      <xs:element name="id" id="id" type="xs:int"/>
+      <xs:element name="salaDate" type="xs:dateTime"/>
+      <xs:element name="numeroVelatorio" type="xs:NMTOKEN"/>
+      <xs:element name="numeroSala" type="xs:string"/>
+      <xs:element name="nombre" type="xs:string"/>
+      <xs:element name="primerApellido" type="xs:string"/>
+      <xs:element name="segundoApellido" type="xs:string"/>
+      <xs:element name="horaSala" type="xs:time"/>
+      <xs:element name="lastUpdated" minOccurs="0" type="xs:dateTime"/>
+      <xs:element name="pubDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+

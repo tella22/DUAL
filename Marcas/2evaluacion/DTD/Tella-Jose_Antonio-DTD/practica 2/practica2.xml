@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE aviso SYSTEM "practica2.dtd">
+
+<aviso>
+	<titulo>...</titulo>
+	<parrafo>...</parrafo>
+	<grafico>...</grafico>
+	<parrafo>...</parrafo>
+	<grafico>...</grafico>
+</aviso>

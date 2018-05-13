@@ -1,0 +1,9 @@
+Abel;Rodríguez;8
+Antonio;Salmerón;4
+josé;Aguado;10
+Pepi;Tonetti;21
+;;0
+kk;rer;0
+;;0
+;;0
+;;0

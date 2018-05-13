@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>formularios 3</title>
+	<link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+
+	<h4>DATOS PRINCIPALES</h4>
+
+	<table>
+		<tr>
+			<td>Clave</td>
+		</tr>
+		<tr>
+			<td><input type="text" class="input"/></td>
+		</tr>
+		<tr>
+			<td>Nombre Completo</td>
+			<td>Sede</td>
+			<td>Tipo de Evento</td>
+		</tr>
+		<tr>
+			<td><input type="text" class="input"/></td>
+			<td><input type="text" class="input"/></td>
+			<td>
+				<select name="Dia">
+					<option value="0">Seleccione una opción</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Fecha de Inicio</td>
+			<td>Fecha de Termino</td>
+			<td>Fecha Larga</td>
+		</tr>
+		<tr>
+			<td><input type="text" class="input"/></td>
+			<td><input type="text" class="input"/></td>
+			<td><input type="text" class="input"/></td>
+		</tr>
+		<tr>
+			<td colspan="3">Descripcion del Evento (No Mayor a 500 Caracteres)</td>
+		</tr>
+		<tr>
+			<td colspan="3"><input type="text" id="big"/></td>
+		</tr>
+	</table>
+
+	<h4 class="conf">CONFIGURACIÓN GENERAL</h4>
+
+	<table>
+		<tr>
+			<td>Tipo de Moneda</td>
+			<td>Costo(incluyendo impuestos)</td>
+			<td>Tipo de cambio a MXN</td>
+		</tr>
+		<tr>
+			<td>
+				<select name="Dia">
+					<option value="0">Seleccione un opción</option>
+					<option value="1">EURO</option>
+					<option value="2">LIBRA</option>
+					<option value="3">DOLLAR</option>
+					<option value="4">DOLLAR MEXICANO</option>
+					<option value="5">PESOS</option>
+				</select>
+			</td>
+			<td><input type="text" class="stat"/></td>
+			<td><input type="text" class="stat"/></td>
+		</tr>
+	</table>
+
+	<h4 class="status">STATUS</h4>
+	<table>
+		<tr>
+			<td class="stat">Status del Evento</td>
+			<td class="stat">Activar idioma inglés</td>
+			<td class="stat"><input type="checkbox" class="check"/>Registo Normal</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" class="check"/>Activo</td>
+			<td><input type="checkbox" class="check"/>Activo</td>
+			<td><input type="checkbox" class="check"/>Registro con Clave</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<td>Link de Retorno (ej. http://www.dominio.com)</td>
+		</tr>
+		<tr>
+			<td><input type="text" class="stat" /></td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<td class="stat"></td>
+			<td class="stat"><input type="submit" name="Enviar" value="guardar" class="registro" /></td>
+		</tr>
+	</table>
+
+	
+
+</body>
+</html>

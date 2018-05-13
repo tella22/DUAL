@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:xs="http://www.prueba.es/persona"
+targetNamespace="https://www.w3schools.com"
+xmlns="https://www.w3schools.com"
+elementFormDefault="qualified">
+
+  <xs:element name="persona" type="personaType"/>
+  <xs:element name="comentario" type="xs:string"/>
+
+  <xs:complexType name="persona">
+    <xs:sequence>
+      <xs:element name="datos" type="xs:string"/>
+      <xs:element name="comentario" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="nacimiento" type="xs:date"/>
+  </xs:complexType>
+
+  <xs:complexType name="personaType">
+    <xs:sequence>
+      <xs:element name="nombre"    type="xs:string"/>
+      <xs:element name="apellidos" type="xs:string"/>
+      <xs:element name="dni"       type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

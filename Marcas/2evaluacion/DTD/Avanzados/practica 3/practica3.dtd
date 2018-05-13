@@ -1,0 +1,13 @@
+<!ELEMENT modelos (modelo+)>
+<!ELEMENT modelo (modelos_relacionados?,
+                  (descripcion,motor)?)>
+<!ATTLIST modelo id ID #REQUIRED>
+
+<!ELEMENT modelos_relacionados (#PCDATA)>
+<!ATTLIST modelos_relacionados idrefs IDREFS #REQUIRED>
+
+<!ELEMENT descripcion (#PCDATA)>
+<!ATTLIST descripcion>
+
+<!ELEMENT motor (#PCDATA)>
+<!ATTLIST motor idref IDREF #REQUIRED>

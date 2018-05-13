@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<arboles>
+	
+	<arbol>
+		<nombre>Acer monspessulanum </nombre> 
+		<nombrecomun>Arce de Montpellier, Arce menor</nombrecomun>
+		<vegetacion>Caducifolio</vegetacion>
+		<altura>De 6 a 10 metros</altura>
+		<forma>Copa esférica. Tronco principal recto con bifurcaciones. Ramaje colgante</forma>
+		<colorprimavera>Haz verde brillante, envés verde blanquecino</colorprimavera>
+		<colorotoño>null</colorotoño>
+		<resistencia>Heladas fuertes (hasta -15ºC)</resistencia>
+	</arbol>
+
+	<arbol>
+		<nombre>Olea europea</nombre>
+		<nombrecomun>Olivo</nombrecomun>
+		<vegetacion>Perenne</vegetacion>
+		<altura>De 8 a 15 metros</altura>
+		<forma>Copa irregular. Tronco principal irregular con bifurcaciones.</forma>
+		<colorprimavera>null</colorprimavera>
+		<colorotoño>null</colorotoño>
+		<resistencia>null</resistencia>
+	</arbol>
+
+	<arbol>
+		<nombre>Ramaje tortuoso</nombre>
+		<nombrecomun>null</nombrecomun>
+		<vegetacion>null</vegetacion>
+		<altura>null</altura>
+		<forma>null</forma>
+		<colorprimavera>Haz verde oscuro, envés verde plateado</colorprimavera>
+		<colorotoño>null</colorotoño>
+		<resistencia>Heladas medias (hasta -10ºC)</resistencia>
+	</arbol>
+
+	<arbol>
+		<nombre>Platanus orientalis</nombre>
+		<nombrecomun>Platano</nombrecomun>
+		<vegetacion>Caducifolio</vegetacion>
+		<altura>De 20 a 25 metros</altura>
+		<forma>Copa ovoidal. Tronco principal recto. Ramaje expandido</forma>
+		<colorprimavera>Haz verde medio, enves verde claro</colorprimavera>
+		<colorotoño>Ocre</colorotoño>
+		<resistencia>Heladas fuertes (hasta -20ºC)</resistencia>
+	</arbol>
+
+	<arbol>
+		<nombre>Quercus ilex</nombre>
+		<nombrecomun>Encina</nombrecomun>
+		<vegetacion>Perenne</vegetacion>
+		<altura>En torno a 25 metros</altura>
+		<forma>Copa esférica o elíptica irregular. Tronco principal recto. Ramaje tortuoso</forma>
+		<colorprimavera>Plateado en hojas jóvenes. En hojas antiguas, haz verde oscuro, envés plateado</colorprimavera>
+		<colorotoño>null</colorotoño>
+		<resistencia>Heladas fuertes (hasta -15ºC)</resistencia>
+	</arbol>
+
+</arboles>

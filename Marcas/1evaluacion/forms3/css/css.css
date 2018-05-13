@@ -1,0 +1,44 @@
+.input {
+	width: 225px;
+}
+select{
+	width: 225px;
+}
+#big{
+	width: 690px;
+	height: 75px;
+}
+
+body{
+	font-family: Tahoma;
+	font-weight: normal;
+}
+tr{
+	font-size: 15px;
+}
+
+.check{
+	width:20px;
+}
+
+.stat{
+	width: 225px;
+}
+.conf{
+	margin-top: 5px;
+	margin-bottom: 8px;
+	margin-left: 3px;
+}
+.status{
+	margin-top: 0px;
+	margin-left: 3px;
+	margin-bottom: 0px;
+}
+.registro{
+	margin-left: 25%;
+	height: 25px;
+	width: 80px;
+	color: purple;
+	font-weight: bold;
+	background-color: #01FF09;
+}

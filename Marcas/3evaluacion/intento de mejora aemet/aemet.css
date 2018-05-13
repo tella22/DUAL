@@ -1,0 +1,130 @@
+﻿body{font-family: "Lucida Console", Lucida, Monospace;
+     text-align: center;}
+
+
+/*---------------------------------------------------------*/
+.viernesDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.sabadoDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.domingoDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.lunesDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.matesDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.miercolesDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.juevesDiv{
+	width: 1050px;
+	height: 290px;
+}
+
+.viernes{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float: left;
+	margin-right:5px;
+}
+
+.sabado{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float: left;
+	margin-right:5px;
+}
+
+.domingo{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float:left;
+	margin-right:5px;
+}
+
+.lunes{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float:left;
+	margin-right:5px;
+}
+
+.martes{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float:left;
+	margin-right:5px;
+}
+
+.miercoles{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float:left;
+	margin-right:5px;
+}
+
+.jueves{
+	background: rgba(224, 224, 224,1);
+	width: 250px;
+	float:left;
+	margin-right:5px;
+}
+
+.dayweek{
+	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+.day{
+	text-align: mid;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.hour{
+	text-align: right;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 3px;
+}
+
+.status{width: 50px;
+        height: 50px;
+		padding-right: 50px;}
+
+.temp{
+	text-align: right;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-right: 3px;
+}
+
+.info{
+	text-align: right;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-size: 12px;
+	margin-right: 3px;
+}
+
+.viento{width: 30px;
+        heigth: 30px;}

@@ -1,0 +1,86 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT facturas (factura)+>
+
+<!ELEMENT factura (datos_cliente,datos_ticket)>
+
+<!ELEMENT datos_cliente (nombre,primer_apellido,segundo_apellido,DNI,
+                         telefono,ID_cliente)>
+
+<!ELEMENT datos_ticket (resguardo_factura,alquileres?,compras?,
+                        resguardo)>
+
+<!ELEMENT primer_apellido (#PCDATA)>
+
+<!ELEMENT segundo_apellido (#PCDATA)>
+
+<!ELEMENT DNI (#PCDATA)>
+
+<!ELEMENT telefono (#PCDATA)>
+
+<!ELEMENT ID_cliente EMPTY>
+<!ATTLIST ID_cliente
+  ID_CL ID #REQUIRED>
+
+<!ELEMENT resguardo_factura (#PCDATA)>
+
+<!ELEMENT alquileres (pelicula,fecha_devolucion)>
+
+<!ELEMENT compras (DVD,cinta)>
+
+<!ELEMENT resguardo (forma_pago,total)>
+
+<!ELEMENT pelicula (ID_pelicula,valoracion,titulo,genero,duracion,
+                    actor1,actor2,actor3,caratula)>
+
+<!ELEMENT fecha_devolucion (#PCDATA)>
+
+<!ELEMENT DVD (titulo_DVD,fecha_salida,extras)>
+
+<!ELEMENT cinta (tipo,rebobinada)>
+
+<!ELEMENT forma_pago EMPTY>
+<!ATTLIST forma_pago
+  pago NMTOKEN #REQUIRED>
+
+<!ELEMENT total (#PCDATA)>
+
+<!ELEMENT ID_pelicula EMPTY>
+<!ATTLIST ID_pelicula
+  id ID #REQUIRED>
+
+<!ELEMENT valoracion EMPTY>
+<!ATTLIST valoracion
+  nota ID #REQUIRED>
+
+<!ELEMENT titulo (#PCDATA)>
+
+<!ELEMENT genero (#PCDATA)>
+
+<!ELEMENT duracion (#PCDATA)>
+
+<!ELEMENT actor1 (nombre,apellidos)>
+
+<!ELEMENT actor2 (nombre,apellidos)>
+
+<!ELEMENT actor3 (nombre,apellidos)>
+
+<!ELEMENT caratula EMPTY>
+
+<!ELEMENT titulo_DVD (#PCDATA)>
+
+<!ELEMENT fecha_salida (#PCDATA)>
+
+<!ELEMENT extras EMPTY>
+<!ATTLIST extras
+  extras NMTOKEN #REQUIRED>
+
+<!ELEMENT tipo (#PCDATA)>
+
+<!ELEMENT rebobinada EMPTY>
+<!ATTLIST rebobinada
+  estado NMTOKEN #REQUIRED>
+
+<!ELEMENT apellidos (#PCDATA)>
+
+<!ELEMENT nombre (#PCDATA)>

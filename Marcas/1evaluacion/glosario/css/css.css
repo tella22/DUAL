@@ -1,0 +1,68 @@
+body{
+	background-image: url("../imagenes/backimage.jpg");
+	font-family: segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+table{
+	margin: 0 auto;
+}
+h4{
+	color: white;
+	background-color: black;
+	text-align: center;
+}
+p{
+	color: black;
+	font-weight: bold;
+	font-size: 16px;
+}
+img{
+	height: 200px;
+	width: 350px;
+	display:block;
+	margin:auto;
+}
+div {
+	width: 48%;
+	margin: 0 auto;
+}
+#menuback {
+ 	
+    position:relative;
+    width:auto;
+    height:25px;
+    z-index:-1;
+    margin:0 auto;
+    padding:0px;
+    list-style-type:none;
+    text-align: center; /*con esto mas inline-block en ul centro la lista */
+}
+#menuback td{
+    list-style:none;
+    position:relative;
+    float:left;
+    margin-left:2px;
+    top:5px;
+    border: 2px solid black; 
+	font-family: segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	line-height:25px;
+	text-decoration: none;
+}
+#menuback a{
+	text-decoration: none;
+	color: black;
+	display: block;
+	text-transform: uppercase;
+	margin-top: 4px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+	display: block;
+	text-transform: uppercase;
+	margin-top: 4px;
+	font-weight: bold;
+	text-align: center;
+}

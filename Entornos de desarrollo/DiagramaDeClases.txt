@@ -1,0 +1,16 @@
+Representa mediante un diagrama de clases la siguiente
+especificación relacionada con los alquileres de cámaras en una
+tienda de fotografía.
+* La tienda alquila cámaras fotográficas analógicas.
+* Las cámaras se caracterizan por su marca, modelo y soporte flash (si, no).
+* Cada cámara es compatible con uno o más tipos de películas.
+* Las películas se caracterizan por su marca, nombre, sensibilidad ISO (50, 100,
+200, 400, 800, 1600) y formato (35mm, 110mm, 120mm).
+* Para cada marca con la que trabaja la tienda se conoce la dirección del servicio
+de reparación más cercano.
+* La tienda dispone de varios ítems de cada modelo de cámara.
+* Cada ítem tiene una pegatina con una referencia, y puede estar en la tienda,
+alquilado, con retraso o en reparación.
+* Los clientes pueden tener un máximo de 1 cámara en alquiler.
+* Cada cámara se alquila un máximo de 7 días, por cada día de retraso, se
+impone una “multa” de un mes sin posibilidad de coger una nueva cámara. 

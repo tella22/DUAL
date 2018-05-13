@@ -1,0 +1,86 @@
+_____________________________________________________________
+
+       Dictionary report
+
+       Project             Hoja5
+_____________________________________________________________
+
+
+
+                        schema Ejercicio 3 r/1
+
+   Categoria
+      Posicion
+      Puntos_
+      Nombre
+      id: Nombre
+         access key
+   Ciclista
+      Nº_de_ficha
+      Nombre
+      Fecha_de_Nacimiento
+      Nacionalidad
+      Ano_Profesional
+      Ano_retiro[0-1]
+      id: Nº_de_ficha
+         access key
+   Director
+      Nº_de_ficha
+      Pue_Nº_de_ficha[0-1]
+      Nacionalidad
+      Decha_Nacimiento
+      id: Nº_de_ficha
+         access key
+      id': Pue_Nº_de_ficha
+         ref: ->  Ciclista.Nº_de_ficha
+         access key
+   Dirige
+      Nombre
+      Nº_de_ficha
+      Ano
+      id: Nombre
+         equ: =  Equipos.Nombre
+         access key
+      id': Nº_de_ficha
+         equ: =  Director.Nº_de_ficha
+         access key
+   Equipos
+      Nombre
+      Ano_de_Aparicion
+      id: Nombre
+         access key
+   Participa
+      Nº_de_ficha
+      Nombre
+      Ano
+      Posicion
+      id: Nº_de_ficha, Nombre
+         access key
+      equ: Nombre = Pruebas.Nombre
+         access key
+      equ: Nº_de_ficha = Ciclista.Nº_de_ficha
+   Pertenece
+      Nº_de_ficha
+      Ano
+      Nombre
+      id: Nº_de_ficha
+         equ: =  Ciclista.Nº_de_ficha
+         access key
+      equ: Nombre = Equipos.Nombre
+         access key
+   Pertenece_a_una
+      P_C_Nombre
+      Nombre
+      Ano
+      id: Nombre, P_C_Nombre
+         access key
+      equ: Nombre = Pruebas.Nombre
+      equ: P_C_Nombre = Categoria.Nombre
+         access key
+   Pruebas
+      Nombre
+      Pais
+      Nº_Participantes
+      id: Nombre
+         access key
+

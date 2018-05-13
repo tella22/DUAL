@@ -1,0 +1,102 @@
+71) De momento no se ha decidido si se va a aplicar descuento a algún cliente. Calcula cuánto se puede recaudar en total con todos los pedidos antes de aplicar descuentos a los clientes.
+71.
+select sum(precio_total) from pedidos;
+
+72) Muestra el precio más alto de cada categoría y el identificador de la categoría a la que pertenece ese precio.
+72.
+select max(precio_venta), id_categoria
+from productos
+group by id_categoria order by id_categoria;
+
+73) Calcula el precio medio de venta de los productos de cada categoría, junto con el identificador de la categoría.
+73.
+select avg(precio_venta) as "Precio Medio", id_categoria
+from productos
+group by id_categoria order by id_categoria;
+
+74) Muestra el precio más alto de cada categoría junto con el identificador y la descripción de la categoría a la que pertenece ese precio, ordenado por identificador de la categoría.
+74.
+select precio_venta, productos.id_categoria, categorias.descripcion 
+from productos, categorias
+where productos.id_categoria = categorias.id_categoria and precio_venta in (select max(precio_venta) from productos group by id_categoria) order by id_categoria;
+
+select precio_venta, productos.id_categoria, categorias.descripcion 
+from productos join categorias on productos.id_categoria = categorias.id_categoria
+where precio_venta in (select max(precio_venta) from productos group by id_categoria) order by id_categoria;
+
+75) Muestra el número de productos que hay en cada categoría.
+75.
+select count(*), id_categoria
+from productos 
+group by id_categoria order by id_categoria;
+
+76) Ahora muestra la descripción e identificador de la categoría que tiene más productos junto con el número de productos que tiene.
+76.
+select id_categoria, descripcion
+from categorias
+where id_categoria =
+	(select id_categoria, count(*) 
+	from productos 
+	group by id_categoria 
+	having count(*) >= (
+		select max(count(*)) 
+		from productos 
+		group by id_categoria));
+
+77) Selecciona cuánto dinero se gastará en total en cada categoría el cliente con identificador 1001 si no se le hace ningún descuento.
+77.
+select sum(precio_total)
+from pedidos 
+where id_cliente in (
+  select id_cliente 
+  from pedidos 
+  where id_cliente like 1001);
+
+78) Muestra la descripción de las categorías que tengan más de 5 productos en venta.
+78.
+select descripcion 
+from categorias 
+where id_categoria in (
+  select id_categoria
+  from productos 
+  group by id_categoria 
+	having count(*) > 5);
+
+79) Muestra nombre, apellidos e identificador de los clientes que tendrán que pagar más de 14000 € en productos de la categoría 1.
+79.
+select sum (cantidad*precio), clientes.nombre, apellidos, id_cliente 
+from clientes join pedidos using (id_cliente)
+join detalles_pedidos using(numero_pedido)
+join productos using (numero_producto)
+where id_categoria = 1
+group by clientes.nombre, apellidos, id_cliente
+having sum(cantidad*precio)>14000;
+
+80) Muestra, para cada empleado, cuánto dinero ha hecho en pedidos.
+80.
+select sum(precio_total), id_empleado 
+from pedidos group by id_empleado;
+
+81) Muestra cuánto recaudarán en pedidos los empleados 701,702 y 703.
+81.
+select sum(precio_total) from pedidos where id_empleado in (701,702,703);
+
+82) Ahora muestra los 3 empleados que más dinero van a recaudar en pedidos. Debe aparecer el identificador del empleado, el nombre y el dinero recaudado
+82.
+select rownum, id_empleado, total, nombre
+from  (select id_empleado, sum(precio_total) as total
+      from pedidos group by id_empleado order by sum(precio_total) DESC) join empleados using (id_empleado)
+where rownum <= 3;
+
+83) Busca el proveedor o proveedores que menos días de envío tengan para algún producto. Debes mostrar el nombre del proveedor junto con el nombre del producto que tiene menos días de envío.
+83.
+//acabado
+select Proveedor, Producto, diaenv 
+from
+            (select proveedores.nombre as Proveedor, productos.nombre as Producto, productos_proveedores.dias_envio as diaenv 
+            from productos join productos_proveedores using (numero_producto) join proveedores using (id_prov))
+where (diaenv,Proveedor) in 
+    (select min(productos_proveedores.dias_envio), nombre 
+    from productos_proveedores join proveedores using (id_prov) 
+    group by proveedores.nombre)
+order by Producto, diaenv;
