@@ -21,6 +21,7 @@ public class EjemploBufferedReader {
             cadALeer = buffer.readLine();
             Leer.mostrarEnPantalla("\nLa frase leida del fichero es: \"" + cadALeer + "\"");
             fichLeer.close();
+            System.err.println("\nLa frase leida del fichero es: \"" + cadALeer + "\"");
             
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());

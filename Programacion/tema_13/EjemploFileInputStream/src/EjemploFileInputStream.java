@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class EjemploFileInputStream {
-
+    
     public static void main(String args[]) {
         int c;
         FileInputStream f = null;
