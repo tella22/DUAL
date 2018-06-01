@@ -7,7 +7,15 @@
 
     <script type="text/javascript">
 	    function anade() {
+            var list = document.createElement("li");
+            var text = document.createTextNode("Linea Nueva");
+            list.appendChild(text);
 
+            var unordered = document.getElementById("lista");
+            unordered.appendChild(list);
+
+            var button = document.getElementsByTagName('input');
+            button.setAttribute("type", "hidden");
 	    }
     </script>
     
